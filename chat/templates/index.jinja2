@@ -1,0 +1,27 @@
+{% extends "base.jinja2" %}
+
+{% block content %}
+<div class="container"><br>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card card-block" style="width: 18rem;">
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="loginInput">Login</label>
+                            <input type="text" class="form-control" id="loginInput" placeholder="Login">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
