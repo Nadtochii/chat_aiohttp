@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{%  block content%}
+<div class="container"><br>
+    <div id="chats">
+        <ul>
+            {% for chat in chats %}
+            <li id="{{ chat.id }}"><a href="{{ chat.id }}/">{{ chat.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

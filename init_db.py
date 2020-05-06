@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine, MetaData
 
 from chat.settings import config
-from chat.db import chat_user
+from chat.db import chat_user, chat, message
 
 
 DSN = "postgresql://{user}:{password}@{host}:{port}/{database}"
@@ -27,12 +27,12 @@ def setup_db():
 
 def create_tables(eng):
     meta = MetaData()
-    meta.create_all(bind=eng, tables=[chat_user])
+    meta.create_all(bind=eng, tables=[chat_user, chat, message])
 
 
 def drop_tables(eng):
     meta = MetaData()
-    meta.drop_all(bind=eng, tables=[chat_user])
+    meta.drop_all(bind=eng, tables=[chat_user, chat, message])
 
 
 if __name__ == '__main__':
