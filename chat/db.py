@@ -17,7 +17,7 @@ chat_user = sa.Table(
 
 chat = sa.Table(
     'chat', meta,
-    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('id', sa.Integer, primary_key=True, autoincrement=True),
     sa.Column('name', sa.String(64), nullable=False, unique=True),
 
     sa.PrimaryKeyConstraint('id', name='chat_id_pkey')

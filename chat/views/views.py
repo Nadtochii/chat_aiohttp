@@ -1,4 +1,7 @@
+import uuid
+
 import aiohttp_jinja2
+from aiohttp import web
 
 from chat import db
 
@@ -15,3 +18,12 @@ async def chats_list(request):
         records = await cursor.fetchall()
         chats = [dict(chat) for chat in records]
         return {'chats': chats}
+
+
+async def new_chat(request):
+    name = str(uuid.uuid4())
+    async with request.app['db'].acquire() as conn:
+        cursor = await conn.execute(db.chat.insert().values({'name': name}))
+        chat = await cursor.fetchone()
+
+    raise web.HTTPFound('/chats/' + str(chat.id) + '/')

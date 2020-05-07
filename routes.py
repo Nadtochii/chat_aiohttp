@@ -1,8 +1,9 @@
 from aiohttp import web
 
-from chat.views.views import index, chats_list
+from chat.views import views
 
 
 def setup_routes(app):
-    app.add_routes([web.get('/', index)]),
-    app.add_routes([web.get('/chats/', chats_list)])
+    app.add_routes([web.get('/', views.index)]),
+    app.add_routes([web.get('/chats/', views.chats_list)]),
+    app.add_routes([web.post('/chats/', views.new_chat)])

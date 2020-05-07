@@ -2,6 +2,9 @@
 
 {%  block content%}
 <div class="container"><br>
+    <form action="/chats/" method="POST" id="create-chat-form">
+        <button type="submit">Create Chat</button>
+    </form>
     <div id="chats">
         <ul>
             {% for chat in chats %}
