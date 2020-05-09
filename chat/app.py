@@ -8,6 +8,12 @@ from routes import setup_routes
 
 async def create_app():
     app = web.Application()
+    app['ws'] = {}
+
+    app.router.add_static('/static/',
+                          path=str('chat/static'),
+                          name='static')
+
     aiohttp_jinja2.setup(
         app,
         loader=jinja2.PackageLoader('chat', 'templates')
